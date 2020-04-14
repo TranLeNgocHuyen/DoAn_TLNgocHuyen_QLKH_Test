@@ -12,23 +12,20 @@ public class AccountDLA
     static Connection con;
     static PreparedStatement preparedStatement=null;
     static ResultSet resultset=null;
-    /*public static void tesConnect()throws SQLException, ClassNotFoundException
-    {
+    /*public static void tesConnect()throws SQLException, ClassNotFoundException{
        con=dbUtils.getMyConnection();
     }*/
     public static ResultSet Login(String Username, String Password)
     {
         con= dbUtils.getMyConnection();
         String sql="SELECT * FROM qlkh_test.into WHERE Username=? and Password=?";
-        try
-        {
+        try {
            preparedStatement=con.prepareStatement(sql);
            preparedStatement.setString(1,Username);
            preparedStatement.setString(2,Password);
            return preparedStatement.executeQuery();
         }
-        catch(Exception e)
-        {
+        catch(Exception e){
             return resultset=null;
         }
     }
